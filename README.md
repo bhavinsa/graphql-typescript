@@ -6,10 +6,6 @@ Getting started with GraphQL and TypeScript using TypeGraphQL - [https://pusher.
 
 Clone the project repository by running the command below if you use SSH
 
-```bash
-$ git clone git@github.com:ammezie/graphql-typescript.git
-```
-
 If you use https, use this instead
 
 ```bash
