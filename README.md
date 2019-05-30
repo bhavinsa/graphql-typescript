@@ -13,7 +13,7 @@ $ git clone git@github.com:ammezie/graphql-typescript.git
 If you use https, use this instead
 
 ```bash
-$ git clone https://github.com/ammezie/graphql-typescript.git
+$ git clone https://github.com/bhavinsa/graphql-typescript.git
 ```
 
 After cloning, run:
