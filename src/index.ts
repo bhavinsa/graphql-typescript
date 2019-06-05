@@ -3,10 +3,11 @@ import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import ProjectResolver from "./resolvers/ProjectResolver";
 import TaskResolver from "./resolvers/TaskResolver";
+import EmployeeResolver from "./resolvers/EmployeeResolver";
 
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [ProjectResolver, TaskResolver],
+    resolvers: [ProjectResolver, TaskResolver, EmployeeResolver],
     emitSchemaFile: true,
   });
 

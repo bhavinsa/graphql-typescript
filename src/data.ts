@@ -1,3 +1,4 @@
+import Employee from './schemas/Employee';
 export interface ProjectData {
   id: number;
   name: string;
@@ -8,6 +9,12 @@ export interface TaskData {
   title: string;
   completed: boolean;
   project_id: number;
+  employee_id: number;
+}
+
+export interface EmployeeData {
+  id: number;
+  name: string;
 }
 
 export const projects: ProjectData[] = [
@@ -16,14 +23,26 @@ export const projects: ProjectData[] = [
 ];
 
 export const tasks: TaskData[] = [
-  { id: 1, title: "Install Node", completed: true, project_id: 1 },
+  { id: 1, title: "Install Node", completed: true, project_id: 1, employee_id: 1 },
   {
     id: 2,
     title: "Install React Native CLI:",
     completed: false,
     project_id: 1,
+    employee_id: 1
   },
-  { id: 3, title: "Install Xcode", completed: false, project_id: 1 },
-  { id: 4, title: "Morning Jog", completed: true, project_id: 2 },
-  { id: 5, title: "Visit the gym", completed: false, project_id: 2 },
+  { id: 3, title: "Install Xcode", completed: false, project_id: 1,employee_id: 2 },
+  { id: 4, title: "Morning Jog", completed: true, project_id: 2, employee_id: 1 },
+  { id: 5, title: "Visit the gym", completed: false, project_id: 2, employee_id: 2 },
 ];
+
+export const employees: EmployeeData[] = [
+  {
+    id:1,
+    name: "Sam"
+  },
+  {
+    id:2,
+    name: "John"
+  }
+]

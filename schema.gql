@@ -3,6 +3,11 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Employee {
+  id: Int!
+  name: String!
+}
+
 type Mutation {
   markAsCompleted(taskId: Float!): Task!
 }
@@ -19,6 +24,8 @@ type Query {
   project: [Project!]
   fetchTasks: [Task!]!
   getTask(id: Float!): Task
+  employees: [Employee!]!
+  getEmployeeById(id: Float!): Employee
 }
 
 type Task {
@@ -26,4 +33,5 @@ type Task {
   title: String!
   project: Project!
   completed: Boolean!
+  employee: Employee!
 }

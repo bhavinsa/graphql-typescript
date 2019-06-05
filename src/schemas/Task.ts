@@ -1,5 +1,7 @@
 import { Field, Int, ObjectType } from "type-graphql";
 import Project from "./Project";
+import Employee from './Employee';
+
 
 @ObjectType()
 export default class Task {
@@ -14,4 +16,7 @@ export default class Task {
 
   @Field()
   completed: boolean;
+
+  @Field(type => Employee)
+  employee: Employee;
 }
