@@ -3,9 +3,19 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Company {
+  id: Int!
+  name: String!
+  address: String!
+}
+
 type Employee {
   id: Int!
   name: String!
+  company_id: Float!
+  company: Company!
+  task: Task!
+  tasks: [Task!]
 }
 
 type Mutation {

@@ -1,6 +1,7 @@
 import { Arg, FieldResolver, Query, Resolver, Root } from "type-graphql";
 import { projects, tasks, ProjectData } from "../data";
 import Project from "../schemas/Project";
+import Task from '../schemas/Task';
 
 @Resolver(of => Project)
 export default class {
@@ -19,7 +20,7 @@ export default class {
     return projects;
   }
 
-  @FieldResolver()
+  @FieldResolver(returns => [Task], {nullable : true})
   tasks(@Root() projectData: ProjectData) {
     return tasks.filter(task => {
       return task.project_id === projectData.id;

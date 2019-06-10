@@ -6,7 +6,7 @@ import {
   Resolver,
   Root,
 } from "type-graphql";
-import { projects, TaskData, tasks } from "../data";
+import { projects, TaskData, tasks, employees } from "../data";
 import Task from "../schemas/Task";
 
 @Resolver(of => Task)
@@ -46,4 +46,12 @@ export default class {
       return project.id === taskData.project_id;
     });
   }
+
+  @FieldResolver()
+  employee(@Root() taskData: TaskData) {
+    return employees.find(emp => {
+      return emp.id === taskData.employee_id;
+    });
+  }
+  
 }

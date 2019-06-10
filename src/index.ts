@@ -4,10 +4,11 @@ import { buildSchema } from "type-graphql";
 import ProjectResolver from "./resolvers/ProjectResolver";
 import TaskResolver from "./resolvers/TaskResolver";
 import EmployeeResolver from "./resolvers/EmployeeResolver";
+import CompanyResolver from "./resolvers/CompanyResolver";
 
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [ProjectResolver, TaskResolver, EmployeeResolver],
+    resolvers: [ProjectResolver, TaskResolver, EmployeeResolver, CompanyResolver],
     emitSchemaFile: true,
   });
 

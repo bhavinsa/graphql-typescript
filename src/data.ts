@@ -1,4 +1,4 @@
-import Employee from './schemas/Employee';
+
 export interface ProjectData {
   id: number;
   name: string;
@@ -15,6 +15,13 @@ export interface TaskData {
 export interface EmployeeData {
   id: number;
   name: string;
+  company_id: number
+}
+
+export interface CompanyData {
+  id: number;
+  name: string;
+  address: string;
 }
 
 export const projects: ProjectData[] = [
@@ -39,10 +46,24 @@ export const tasks: TaskData[] = [
 export const employees: EmployeeData[] = [
   {
     id:1,
-    name: "Sam"
+    name: "Sam",
+    company_id : 1
   },
   {
     id:2,
-    name: "John"
+    name: "John",
+    company_id : 2
   }
 ]
+export const companies : CompanyData[] = [
+  {
+    id:1,
+    name: "Apple",
+    address:"AHD"
+  },
+  {
+    id:2,
+    name: "Google",
+    address:"GNR"
+  }
+];
