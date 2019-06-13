@@ -2,6 +2,7 @@ import { Field, Int, ObjectType } from "type-graphql";
 import Project from "./Project";
 import Task from "./Task";
 import Company from "./Company";
+import { designation } from '../data';
 
 @ObjectType()
 export default class Employee {
@@ -14,10 +15,6 @@ export default class Employee {
   @Field()
   company_id: number;
 
-  @Field(type => Company)
-  company: Company
-
-  @Field(type => Task)
-  task: Task
-
+  @Field()
+  designation_id: number;
 }

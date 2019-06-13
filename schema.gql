@@ -9,13 +9,20 @@ type Company {
   address: String!
 }
 
+type Designation {
+  id: Int
+  name: String
+}
+
 type Employee {
   id: Int!
   name: String!
   company_id: Float!
-  company: Company!
-  task: Task!
+  designation_id: Float!
+  company: Company
   tasks: [Task!]
+  designation: Designation!
+  status: String!
 }
 
 type Mutation {
