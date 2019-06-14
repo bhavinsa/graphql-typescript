@@ -17,4 +17,10 @@ export default class Employee {
 
   @Field()
   designation_id: number;
+
+  @Field()
+  created : Date
+
+  @Field()
+  enable : boolean
 }

@@ -9,6 +9,9 @@ type Company {
   address: String!
 }
 
+# The javascript `Date` as string. Type represents date and time as the ISO Date string.
+scalar DateTime
+
 type Designation {
   id: Int
   name: String
@@ -19,6 +22,8 @@ type Employee {
   name: String!
   company_id: Float!
   designation_id: Float!
+  created: DateTime!
+  enable: Boolean!
   company: Company
   tasks: [Task!]
   designation: Designation!
