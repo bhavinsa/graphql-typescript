@@ -41,7 +41,7 @@ export default class {
       return data.rows;
     }).catch((error => {
       console.log(JSON.stringify(error));
-      return employees;
+      return [];
     }));
   }
   
