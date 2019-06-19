@@ -37,10 +37,13 @@ export default class {
 
   @Query(returns => [Employee])
   public async employees(): Promise<EmployeeData[]> {
+    // const data = await this.employeeService.getEmployee();
+    // return data.rows;
     return await this.employeeService.getEmployee().then(data => {
+      // console.log(JSON.stringify(data.rows));
       return data.rows;
     }).catch((error => {
-      console.log(JSON.stringify(error));
+      console.log("error " + error);
       return [];
     }));
   }

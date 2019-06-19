@@ -1,8 +1,8 @@
 import { Pool } from "pg";
 import "reflect-metadata";
 import { Service, Container } from "typedi";
-import * as config from "config";
-
+// import * as config from "config";
+import config = require("config");
 @Service()
 export class DbConnectionService {
   private databaseConnection: Pool;

@@ -10,7 +10,8 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "rootDir": "src"
+    "rootDir": ".",
+    "esModuleInterop": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./tests/*"]
 }
