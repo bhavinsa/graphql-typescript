@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceFolder}/dist/index.js",
+            "program": "${workspaceFolder}/dist/src/index.js",
             "stopOnEntry": false,
             "args": [],
             "runtimeExecutable": null,

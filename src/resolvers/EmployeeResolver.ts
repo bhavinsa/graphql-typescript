@@ -37,22 +37,26 @@ export default class {
 
   @Query(returns => [Employee])
   public async employees(): Promise<EmployeeData[]> {
-    // const data = await this.employeeService.getEmployee();
-    // return data.rows;
-    return await this.employeeService.getEmployee().then(data => {
-      // console.log(JSON.stringify(data.rows));
+    try {
+      const data = await this.employeeService.getEmployee();
       return data.rows;
-    }).catch((error => {
+    } catch (error) {
       console.log("error " + error);
       return [];
-    }));
+    }
   }
-  
+
   @Query(returns => Employee, { nullable: true })
   public async getEmployeeById(
     @Arg("id") id: number
-  ): Promise<EmployeeData | undefined> {
-    return employees.find(emp => emp.id === id);
+  ): Promise<EmployeeData | []> {
+    try {
+      const data = await this.employeeService.getEmployee();
+      return data.rows.find((emp: { id: number }) => emp.id === id);
+    } catch (error) {
+      console.log("error " + error);
+      return [];
+    }
   }
 
   @FieldResolver(returns => Company, { nullable: true })
