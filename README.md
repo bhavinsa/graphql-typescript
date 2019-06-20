@@ -27,7 +27,7 @@ $ npm run build
 And finally, start the application:
 
 ```bash
-$ npm start
+$ npm run start
 ```
 
 The server will be running on [http://localhost:4000](http://localhost:4000).
