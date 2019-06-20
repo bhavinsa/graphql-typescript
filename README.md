@@ -38,6 +38,36 @@ $ npm run test
 
 The server will be running on [http://localhost:4000](http://localhost:4000).
 
+```
+# Graphql query:
+{
+  getEmployeeById(id: 2) {
+    id
+    name
+    company{
+      id
+      name
+      address
+    }
+    tasks{
+      id
+      title
+      completed
+      project{
+        id
+        name
+      }
+    }
+    status
+    designation{
+      id
+      name
+    }
+  }
+}
+
+```
+
 ## Built With
 
 * [TypeGraphQL](https://19majkel94.github.io/type-graphql) - Modern framework for GraphQL API in Node.js
