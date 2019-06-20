@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -w -p ./tsconfig.json",
-    "up": "node ./dist/src/index.js",
     "start": "concurrently \"tsc -w -p ./tsconfig.json\" \"nodemon ./dist/src/index.js\"",
-    "test": "nyc --reporter none mocha --timeout 5000 --recursive --require module-alias/register --require isomorphic-fetch --require reflect-metadata --require source-map-support/register ./dist/**/*.spec.js",
-    "testWithCoverage": "nyc -r lcov -e .ts -x \"*.test.ts\" mocha -r ts-node/register tests/**/*.test.ts && nyc report"
+    "test": "tsc -p ./tsconfig.json && nyc --reporter none mocha --timeout 5000 --recursive --require module-alias/register --require isomorphic-fetch --require reflect-metadata --require source-map-support/register ./dist/**/*.spec.js",
+    "testWithCoverage": "nyc -r lcov -e .ts -x \"*.spec.js\" mocha -r ts-node/register ./dist/**/*.spec.js && nyc report"
   },
   "keywords": [],
   "author": "",
