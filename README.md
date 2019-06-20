@@ -30,6 +30,12 @@ And finally, start the application:
 $ npm run start
 ```
 
+To run test case:
+
+```bash
+$ npm run test
+```
+
 The server will be running on [http://localhost:4000](http://localhost:4000).
 
 ## Built With
