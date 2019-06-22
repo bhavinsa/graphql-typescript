@@ -22,6 +22,11 @@ import Company from "../schemas/Company";
 import Designation from "../schemas/Designation";
 import { EmployeeService } from "../services/EmployeeService";
 import Container, { Inject } from "typedi";
+import { createWriteStream } from "fs";
+const fs = require("fs");
+
+import { GraphQLUpload } from "graphql-upload";
+import { Upload } from "../types/Upload";
 
 @Resolver(of => Employee)
 export default class {
@@ -49,7 +54,7 @@ export default class {
   @Query(returns => Employee, { nullable: true })
   public async getEmployeeById(
     @Arg("id") id: number
-  ): Promise<EmployeeData | []> {
+  ): Promise<EmployeeData | [] | undefined> {
     try {
       const data = await this.employeeService.getEmployee();
       return data.rows.find((emp: { id: number }) => emp.id === id);
@@ -83,5 +88,25 @@ export default class {
   @FieldResolver(returns => String)
   public async status() {
     return "ACTIVE";
+  }
+
+  @Mutation(() => Boolean)
+  async addProfilePicture(@Arg("picture", () => GraphQLUpload)
+  {
+    createReadStream,
+    filename,
+  }: Upload): Promise<boolean> {
+    const dir = __dirname + "./../../photos";
+    
+    return new Promise(async (resolve, reject) => {
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+      }
+
+      createReadStream()
+        .pipe(createWriteStream(__dirname + "./../../photos" + `/${filename}`))
+        .on("finish", () => resolve(true))
+        .on("error", () => reject(false))
+      );
   }
 }

@@ -18,7 +18,19 @@ async function bootstrap() {
   const server = new GraphQLServer({
     schema
   });
-  server.start(() => console.log("Server is running on http://localhost:4000"));
+
+  const options = {
+    port: 4000,
+    // endpoint: "/graphql",
+    // subscriptions: "/subscriptions",
+    playground: "/"
+  };
+
+  server.start(options, ({ port }) =>
+    console.log(
+      `Server started, listening on port ${port} for incoming requests.`
+    )
+  );
 }
 
 bootstrap();
