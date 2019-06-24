@@ -7,7 +7,11 @@
     "build": "tsc -w -p ./tsconfig.json",
     "start": "concurrently \"tsc -w -p ./tsconfig.json\" \"nodemon ./dist/src/index.js\"",
     "test": "tsc -p ./tsconfig.json && nyc --reporter none mocha --timeout 5000 --recursive --require module-alias/register --require isomorphic-fetch --require reflect-metadata --require source-map-support/register ./dist/**/*.spec.js",
-    "testWithCoverage": "nyc -r lcov -e .ts -x \"*.spec.js\" mocha -r ts-node/register ./dist/**/*.spec.js && nyc report"
+    "testWithCoverage": "nyc -r lcov -e .ts -x \"*.spec.js\" mocha -r ts-node/register ./dist/**/*.spec.js && nyc report",
+    "server": "nodemon ./dist/src/index.js",
+    "client": "set PORT=4001 && npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
   },
   "keywords": [],
   "author": "",
