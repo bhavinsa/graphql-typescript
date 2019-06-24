@@ -66,6 +66,13 @@ The server will be running on [http://localhost:4000](http://localhost:4000).
   }
 }
 
+
+mutation addProfilePicture($picture: Upload!) {
+  addProfilePicture(picture: $picture)
+}
+
+picture - Upload file from machine
+
 ```
 
 ## Built With

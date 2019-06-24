@@ -94,19 +94,17 @@ export default class {
   async addProfilePicture(@Arg("picture", () => GraphQLUpload)
   {
     createReadStream,
-    filename,
+    filename
   }: Upload): Promise<boolean> {
-    const dir = __dirname + "./../../photos";
-    
-    return new Promise(async (resolve, reject) => {
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir);
-      }
-
+    const dir = __dirname + "./../../photos/";
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+    return new Promise(async (resolve, reject) =>
       createReadStream()
-        .pipe(createWriteStream(__dirname + "./../../photos" + `/${filename}`))
+        .pipe(createWriteStream(dir + `${filename}`))
         .on("finish", () => resolve(true))
         .on("error", () => reject(false))
-      );
+    );
   }
 }
