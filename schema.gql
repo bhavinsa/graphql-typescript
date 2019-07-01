@@ -30,9 +30,18 @@ type Employee {
   status: String!
 }
 
+input EmployeeInput {
+  id: Int!
+  name: String!
+  company_id: Float!
+  designation_id: Float!
+  enable: Boolean!
+}
+
 type Mutation {
   markAsCompleted(taskId: Float!): Task!
   addProfilePicture(picture: Upload!): Boolean!
+  addEmployee(input: EmployeeInput!): Boolean
 }
 
 type Project {

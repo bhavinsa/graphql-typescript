@@ -27,6 +27,7 @@ const fs = require("fs");
 
 import { GraphQLUpload } from "graphql-upload";
 import { Upload } from "../types/Upload";
+import EmployeeInput from "../inputs/EmployeeInput";
 
 @Resolver(of => Employee)
 export default class {
@@ -56,8 +57,8 @@ export default class {
     @Arg("id") id: number
   ): Promise<EmployeeData | [] | undefined> {
     try {
-      const data = await this.employeeService.getEmployee();
-      return data.rows.find((emp: { id: number }) => emp.id === id);
+      const data: any = await this.employeeService.getEmployeeById(id);
+      return (data) ? data.rows : [];
     } catch (error) {
       console.log("error " + error);
       return [];
@@ -107,4 +108,19 @@ export default class {
         .on("error", () => reject(false))
     );
   }
+
+  @Mutation(() => Boolean, { nullable: true })
+  async addEmployee(
+    @Arg("input") input: EmployeeInput
+  ): Promise<boolean>
+  {
+    try {
+      const data = await this.employeeService.addEmployee(input);
+      return true
+    } catch (error) {
+      console.log("error " + error);
+      return false
+    }
+  }
+
 }

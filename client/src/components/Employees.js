@@ -24,7 +24,8 @@ export class Employees extends Component {
                 <Fragment>
                   <table
                     className="table table-striped table-bordered"
-                    style={{ width: "25%" }}>
+                    style={{ width: "25%" }}
+                  >
                     <thead>
                       <tr>
                         <th style={{ width: "1%" }} scope="col">
@@ -39,10 +40,10 @@ export class Employees extends Component {
                         <EmployeeList key={emp.id} emp={emp} />
                       ))}
                     </thead>
-                   </table>
+                  </table>
                 </Fragment>
               );
-            };
+            }
           }}
         </Query>
       </Fragment>
